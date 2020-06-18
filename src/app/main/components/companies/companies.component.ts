@@ -40,11 +40,13 @@ export class CompaniesComponent implements OnInit {
       this.weekStats = [];
       this.aggregateStats(this.aggregateArrays);
       value = { ...value.weekStats, ...this.weekStats };
+      this.chart.destroy();
       this.initChart([value]);
     } else {
       this.monthBalance = 0;
       this.balance = 0;
       this.weekStats = [];
+      if (this.chart) this.chart.destroy();
       this.aggregateStats(this.companies);
       this.initChart(this.companies);
     }
@@ -94,10 +96,9 @@ export class CompaniesComponent implements OnInit {
           label: 'Companies List',
           backgroundColor: 'rgb(148,166,194)',
           borderColor: 'rgb(50,53,226)',
-          data: this.weekStats
+          data: this.weekStats,
         }]
-      },
-      options: {}
+      }
     });
   }
 }
