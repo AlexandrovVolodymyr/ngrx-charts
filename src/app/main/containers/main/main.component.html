@@ -1,0 +1,10 @@
+<main class="main">
+  <header></header>
+
+  <app-companies [companies]="companies$ | async"
+                 [company]="company$ | async"
+                 (selectedValue)="changeCategory($event)">
+  </app-companies>
+
+  <footer></footer>
+</main>

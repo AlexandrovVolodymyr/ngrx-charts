@@ -1,0 +1,24 @@
+/* You can add global styles to this file, and also import other style files */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  font-family: 'Roboto Light', sans-serif;
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  transition: all 0.3s ease-in-out;
+}

@@ -1,0 +1,18 @@
+.chart {
+  padding: 15px;
+  max-width: 750px;
+
+  .total {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px;
+  }
+
+  .filtered {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+  }
+}

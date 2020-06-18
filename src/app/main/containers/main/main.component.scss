@@ -1,0 +1,12 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+
+  header,
+  footer {
+    background-color: rgb(148,166,194);
+    min-height: 50px;
+  }
+}

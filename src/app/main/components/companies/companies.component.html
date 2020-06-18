@@ -1,0 +1,28 @@
+<div class="chart">
+  <div class="filtered">
+    <label>
+      <select [(ngModel)]="type" (change)="selectCategory(type)">
+        <option value="Все категории">Все категории</option>
+        <option *ngFor="let option of companies | filterUnique">
+          {{ option }}
+        </option>
+      </select>
+    </label>
+
+    <label>
+      <select [(ngModel)]="name" (change)="selectName(name)">
+        <option value="Все вхождения">Все вхождения</option>
+        <option *ngFor="let option of companies">
+          {{ option.name }}
+        </option>
+      </select>
+    </label>
+  </div>
+
+  <canvas id="myChart" #chart></canvas>
+
+  <div class="total">
+    <span>Month: {{ monthBalance }}</span>
+    <span>Total: {{ balance }}</span>
+  </div>
+</div>
