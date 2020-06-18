@@ -3,6 +3,7 @@
 
   <app-companies [companies]="companies$ | async"
                  [company]="company$ | async"
+                 (selectedName)="changeName($event)"
                  (selectedValue)="changeCategory($event)">
   </app-companies>
 

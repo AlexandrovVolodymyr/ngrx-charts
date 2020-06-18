@@ -41,4 +41,8 @@ export class MainComponent implements OnInit {
         company,
       );
   }
+
+  changeName(name: string) {
+    console.log(name);
+  }
 }

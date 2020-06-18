@@ -23,6 +23,7 @@
 
   <div class="total">
     <span>Month: {{ monthBalance }}</span>
+    <button *ngIf="isEntry" (click)="showEntryName()">Open</button>
     <span>Total: {{ balance }}</span>
   </div>
 </div>

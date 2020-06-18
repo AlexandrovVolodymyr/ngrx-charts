@@ -29,6 +29,8 @@ export class CompaniesComponent implements OnInit {
   name = 'Все вхождения';
   chart: Chart;
   aggregateArrays = [];
+  isEntry = false;
+  entryName = [];
 
   @Input() companies: Company[];
   @Input() set company(value) {
@@ -36,13 +38,7 @@ export class CompaniesComponent implements OnInit {
       this.balance = 0;
       this.monthBalance = 0;
       this.weekStats = [];
-      // this.aggregateArrays.forEach(item => {
-      //   this.balance += item.balance;
-      //   this.monthBalance += item.monthBalance;
-      //   this.weekStats = [...this.weekStats, Object.values(item.weekStats)];
-      // });
       this.aggregateStats(this.aggregateArrays);
-      // this.weekStats = this.weekStats.reduce((acc, array) => array.map((item, index) => (acc[index] || 0) + item), []);
       value = { ...value.weekStats, ...this.weekStats };
       this.initChart([value]);
     } else {
@@ -54,6 +50,7 @@ export class CompaniesComponent implements OnInit {
     }
   }
   @Output() selectedValue: EventEmitter<string> = new EventEmitter<string>();
+  @Output() selectedName: EventEmitter<string> = new EventEmitter<string>();
 
   constructor() { }
 
@@ -66,7 +63,18 @@ export class CompaniesComponent implements OnInit {
   }
 
   selectName(name: string) {
-    console.log(name);
+    if (name !== 'Все вхождения') {
+      this.selectedName.emit(name);
+      this.isEntry = true;
+      this.entryName = [...this.entryName, this.companies.find(item => item.name === name)];
+    } else {
+      this.isEntry = false;
+      this.entryName = [];
+    }
+  }
+
+  showEntryName() {
+    console.log(this.entryName);
   }
 
   private aggregateStats(companies: Company[]) {
