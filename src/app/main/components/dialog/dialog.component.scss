@@ -1,0 +1,17 @@
+.dialog {
+  &__type, &__name {
+    font-size: 16px;
+  }
+  &__name span {
+    font-weight: bold;
+  }
+  .dialog-stats {
+    padding-left: 0;
+
+    &__item {
+      .stat {
+        text-transform: uppercase;
+      }
+    }
+  }
+}

@@ -1,5 +1,9 @@
 <main class="main">
-  <header></header>
+  <header>
+    <mat-toolbar color="primary">
+      <img class="logo" src="assets/images/chartjs-logo.svg" alt="logo">
+    </mat-toolbar>
+  </header>
 
   <app-companies [companies]="companies$ | async"
                  [company]="company$ | async"

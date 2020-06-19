@@ -10,8 +10,8 @@ export class CompaniesService {
   companies: Company[] = [
     {
       id: 1,
-      name: 'some name',
-      type: 'someType',
+      name: 'Microsoft',
+      type: 'IT Company',
       weekStats: {
         monday: 30,
         tuesday: 35,
@@ -26,8 +26,8 @@ export class CompaniesService {
     },
     {
       id: 2,
-      name: 'some name 2',
-      type: 'someType',
+      name: 'Oracle',
+      type: 'IT Company',
       weekStats: {
         monday: 8,
         tuesday: 4,
@@ -42,8 +42,8 @@ export class CompaniesService {
     },
     {
       id: 3,
-      name: 'some name 3',
-      type: 'someType 3',
+      name: 'East India',
+      type: 'Royal Chartered Company',
       weekStats: {
         monday: 12,
         tuesday: 24,
@@ -53,7 +53,7 @@ export class CompaniesService {
         saturday: 48,
         sunday: 16
       },
-      balance: 150,
+      balance: 1500,
       monthBalance: 222
     },
     {
@@ -71,6 +71,54 @@ export class CompaniesService {
       },
       balance: 0,
       monthBalance: 0
+    },
+    {
+      id: 5,
+      name: 'BBC',
+      type: 'Royal Chartered Company',
+      weekStats: {
+        monday: 3,
+        tuesday: 12,
+        wednesday: 41,
+        thursday: 33,
+        friday: 55,
+        saturday: 25,
+        sunday: 20
+      },
+      balance: 750,
+      monthBalance: 200
+    },
+    {
+      id: 6,
+      name: 'The Reserve Bank of India',
+      type: 'Statutory Company',
+      weekStats: {
+        monday: 22,
+        tuesday: 31,
+        wednesday: 14,
+        thursday: 17,
+        friday: 22,
+        saturday: 40,
+        sunday: 20
+      },
+      balance: 1200,
+      monthBalance: 450
+    },
+    {
+      id: 7,
+      name: 'Life Insurance Corporation',
+      type: 'Statutory Company',
+      weekStats: {
+        monday: 22,
+        tuesday: 31,
+        wednesday: 14,
+        thursday: 17,
+        friday: 22,
+        saturday: 40,
+        sunday: 20
+      },
+      balance: 1200,
+      monthBalance: 450
     },
   ];
 

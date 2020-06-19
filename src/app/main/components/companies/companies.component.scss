@@ -1,16 +1,21 @@
+@import './../../../../variables';
+
 .chart {
   padding: 15px;
-  max-width: 750px;
+  max-width: 991px;
+  margin: auto;
 
   .total {
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 15px;
+    min-height: 70px;
   }
 
   .filtered {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
     padding: 15px;

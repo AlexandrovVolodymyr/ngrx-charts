@@ -1,18 +1,17 @@
 import {
   ChangeDetectionStrategy,
-  ChangeDetectorRef,
   Component,
   EventEmitter,
   Input,
-  OnChanges,
   OnInit,
   Output,
-  SimpleChanges
 } from '@angular/core';
 
 import { Company } from '../../models/company.interface';
 
 import { Chart } from 'chart.js';
+import { MatDialog } from '@angular/material/dialog';
+import { DialogComponent } from '../dialog/dialog.component';
 
 @Component({
   selector: 'app-companies',
@@ -25,8 +24,8 @@ export class CompaniesComponent implements OnInit {
   monthBalance = 0;
   balance = 0;
   weekStats = [];
-  type = 'Все категории';
-  name = 'Все вхождения';
+  type = 'All Categories';
+  name = 'All Names';
   chart: Chart;
   aggregateArrays = [];
   isEntry = false;
@@ -54,7 +53,7 @@ export class CompaniesComponent implements OnInit {
   @Output() selectedValue: EventEmitter<string> = new EventEmitter<string>();
   @Output() selectedName: EventEmitter<string> = new EventEmitter<string>();
 
-  constructor() { }
+  constructor(private dialog: MatDialog) { }
 
   ngOnInit(): void {}
 
@@ -65,10 +64,10 @@ export class CompaniesComponent implements OnInit {
   }
 
   selectName(name: string) {
-    if (name !== 'Все вхождения') {
+    if (name !== 'All Names') {
       this.selectedName.emit(name);
       this.isEntry = true;
-      this.entryName = [...this.entryName, this.companies.find(item => item.name === name)];
+      this.entryName = [this.companies.find(item => item.name === name)];
     } else {
       this.isEntry = false;
       this.entryName = [];
@@ -76,7 +75,9 @@ export class CompaniesComponent implements OnInit {
   }
 
   showEntryName() {
-    console.log(this.entryName);
+    const dialogRef = this.dialog.open(DialogComponent, {
+      data: this.entryName
+    });
   }
 
   private aggregateStats(companies: Company[]) {
@@ -94,10 +95,15 @@ export class CompaniesComponent implements OnInit {
         labels: ['M', 'T', 'W', 'Th', 'F', 'Sat', 'S'],
         datasets: [{
           label: 'Companies List',
-          backgroundColor: 'rgb(148,166,194)',
+          backgroundColor: 'rgb(199,201,222)',
           borderColor: 'rgb(50,53,226)',
           data: this.weekStats,
         }]
+      },
+      options: {
+        legend: {
+          display: false
+        }
       }
     });
   }

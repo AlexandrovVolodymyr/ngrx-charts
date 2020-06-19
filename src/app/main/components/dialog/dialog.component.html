@@ -1,0 +1,9 @@
+<div class="dialog">
+  <div class="dialog__type">Company Type - {{ data[0].type }}</div>
+  <div class="dialog__name">Company Name - <span>{{ data[0].name }}</span></div>
+  <ul class="dialog-stats">
+    <li class="dialog-stats__item" *ngFor="let stat of stats; let idx = index;">
+      <div class="stat">{{ weekDays[idx] }} - {{ stat }}</div>
+    </li>
+  </ul>
+</div>

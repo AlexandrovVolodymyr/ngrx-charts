@@ -1,29 +1,29 @@
 <div class="chart">
   <div class="filtered">
-    <label>
-      <select [(ngModel)]="type" (change)="selectCategory(type)">
-        <option value="Все категории">Все категории</option>
-        <option *ngFor="let option of companies | filterUnique">
-          {{ option }}
-        </option>
-      </select>
-    </label>
+    <mat-form-field>
+      <mat-select [(ngModel)]="type" (selectionChange)="selectCategory(type)">
+        <mat-option value="All Categories">All Categories</mat-option>
+        <mat-option *ngFor="let option of companies | filterUnique" [value]="option">
+          {{option}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
 
-    <label>
-      <select [(ngModel)]="name" (change)="selectName(name)">
-        <option value="Все вхождения">Все вхождения</option>
-        <option *ngFor="let option of companies">
+    <mat-form-field>
+      <mat-select [(ngModel)]="name" (selectionChange)="selectName(name)">
+        <mat-option value="All Names">All Names</mat-option>
+        <mat-option *ngFor="let option of companies" [value]="option.name">
           {{ option.name }}
-        </option>
-      </select>
-    </label>
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
   </div>
 
   <canvas id="myChart" #chart></canvas>
 
   <div class="total">
     <span>Month: {{ monthBalance }}</span>
-    <button *ngIf="isEntry" (click)="showEntryName()">Open</button>
+    <button mat-raised-button color="primary" *ngIf="isEntry" (click)="showEntryName()">Open</button>
     <span>Total: {{ balance }}</span>
   </div>
 </div>
