@@ -1,9 +1,13 @@
 .dialog {
   &__type, &__name {
-    font-size: 16px;
+    font-size: 14px;
+
+    span {
+      font-weight: bold;
+    }
   }
-  &__name span {
-    font-weight: bold;
+  &__name {
+    margin-top: 5px;
   }
   .dialog-stats {
     padding-left: 0;
@@ -13,5 +17,9 @@
         text-transform: uppercase;
       }
     }
+  }
+
+  .dialog-actions {
+    text-align: right;
   }
 }
